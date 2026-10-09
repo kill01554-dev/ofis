@@ -1,0 +1,1800 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biccas Landing Page</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: Arial, sans-serif;
+  color: #191d1a;
+  background: #fff;
+}
+
+a { text-decoration: none; color: inherit; }
+.container { width: 88%; max-width: 1150px; margin: auto; }
+section { padding: 65px 0; }
+
+button, input, textarea { font: inherit; }
+
+.btn {
+  display: inline-block;
+  background: #50bd98;
+  color: white;
+  border: 0;
+  border-radius: 25px;
+  padding: 12px 22px;
+  cursor: pointer;
+}
+
+h2 {
+  font-size: 32px;
+  line-height: 1.25;
+  margin-bottom: 20px;
+}
+
+/* NAVBAR */
+header {
+  background: #f4fbf7;
+  padding: 20px 0;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #50bd98;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+  font-size: 13px;
+}
+
+.nav-links a:hover { color: #50bd98; }
+
+/* 1. HERO */
+.hero {
+  background: linear-gradient(120deg, #e0f6ee, #fff, #d8f5e9);
+  padding-top: 45px;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 45px;
+}
+
+.hero h1 {
+  font-size: clamp(38px, 5vw, 60px);
+  line-height: 1.08;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 13px;
+  line-height: 1.8;
+  margin: 20px 0;
+}
+
+.hero-image {
+  position: relative;
+  min-height: 330px;
+  display: grid;
+  place-items: center;
+}
+
+.hero-image img {
+  width: 85%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 12px;
+  background: #50bd98;
+}
+
+.floating {
+  position: absolute;
+  background: white;
+  border-radius: 9px;
+  padding: 13px;
+  box-shadow: 0 5px 25px #0001;
+  font-size: 12px;
+}
+
+.float-one { top: 35px; left: 0; }
+.float-two { bottom: 25px; right: 0; }
+
+.partners {
+  text-align: center;
+  padding-top: 65px;
+}
+
+.partners h3 { margin-bottom: 25px; }
+
+.partner-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 35px;
+  color: #9da5a0;
+  font-weight: bold;
+}
+
+/* 2. SUPPORT */
+.support { background: #f8f7fc; }
+
+.support-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+.muted {
+  color: #929b96;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.ratings {
+  display: flex;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.stars { color: #ffba08; font-size: 20px; }
+
+.support-item {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 25px;
+}
+
+.icon {
+  min-width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  background: white;
+  color: #50bd98;
+  border-radius: 7px;
+}
+
+.support-item p {
+  color: #929b96;
+  font-size: 12px;
+  margin-top: 7px;
+  line-height: 1.6;
+}
+
+/* 3. FEATURES */
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 35px;
+}
+
+.section-heading p {
+  color: #929b96;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.feature-card { min-width: 0; }
+
+.art {
+  height: 200px;
+  background: #f4f6ff;
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+
+.art img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.feature-card h3 { margin-bottom: 8px; }
+.feature-card p { color: #929b96; font-size: 12px; line-height: 1.7; }
+
+/* 4. BENEFITS */
+.benefits {
+  background: linear-gradient(100deg, #fff, #e0f7ed);
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 55px;
+}
+
+.check-list {
+  list-style: none;
+  margin-top: 25px;
+}
+
+.check-list li {
+  margin: 20px 0;
+  font-size: 13px;
+}
+
+.check-list li::before {
+  content: "✓";
+  color: white;
+  background: #50bd98;
+  border-radius: 50%;
+  padding: 3px 6px;
+  margin-right: 12px;
+}
+
+.benefit-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* 5. PRICING */
+.pricing {
+  text-align: center;
+  background: linear-gradient(110deg, white, #e0f7ed);
+}
+
+.pricing-intro {
+  color: #929b96;
+  font-size: 13px;
+  margin-bottom: 25px;
+}
+
+.price-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 35px;
+  text-align: center;
+  align-items: center;
+}
+
+.price-card {
+  background: white;
+  padding: 28px 18px;
+  border-radius: 13px;
+  box-shadow: 0 5px 25px #00000008;
+}
+
+.price-card p {
+  color: #929b96;
+  font-size: 12px;
+  margin: 12px 0;
+}
+
+.price {
+  font-size: 42px;
+  margin: 15px 0;
+}
+
+.price-card ul {
+  text-align: left;
+  list-style: none;
+  background: #f7faf8;
+  border-radius: 10px;
+  padding: 18px;
+  margin-top: 20px;
+}
+
+.price-card li {
+  font-size: 12px;
+  margin: 13px 0;
+}
+
+.price-card li::before {
+  content: "✓";
+  color: #50bd98;
+  margin-right: 8px;
+}
+
+.pro {
+  background: #50bd98;
+  color: white;
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+
+.pro p { color: #e8fff5; }
+.pro ul { color: #191d1a; }
+
+/* 6. TESTIMONIAL + FORM */
+.testimonials {
+  background: #151c2b;
+  color: white;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.testimonials p {
+  color: #b6bdc8;
+  line-height: 1.8;
+  font-size: 13px;
+}
+
+.quote {
+  font-size: 55px;
+  margin-top: 20px;
+}
+
+.contact-form {
+  background: #202a3b;
+  border-radius: 12px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.contact-form h3 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 13px;
+  border: none;
+  border-radius: 6px;
+  width: 100%;
+}
+
+.contact-form textarea { resize: vertical; }
+
+/* 7. FAQ */
+.faq { background: #f8fbf9; }
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 55px;
+}
+
+.faq details {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  box-shadow: 0 3px 15px #00000008;
+}
+
+.faq summary {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.faq details p {
+  color: #929b96;
+  margin-top: 15px;
+  line-height: 1.7;
+}
+
+/* 8. FOOTER */
+footer {
+  background: #151c2b;
+  color: white;
+  padding: 55px 0 25px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 30px;
+}
+
+footer p, footer a {
+  color: #adb5c1;
+  font-size: 12px;
+  line-height: 2.2;
+}
+
+footer h4 { margin-bottom: 15px; }
+
+.subscribe {
+  display: flex;
+  margin-top: 20px;
+  border: 1px solid #77818f;
+  border-radius: 25px;
+  padding: 5px;
+}
+
+.subscribe input {
+  width: 100%;
+  min-width: 0;
+  background: transparent;
+  color: white;
+  border: 0;
+  outline: none;
+  padding: 8px;
+}
+
+.subscribe button {
+  border: 0;
+  border-radius: 50%;
+  padding: 8px 12px;
+  background: #50bd98;
+  color: white;
+  cursor: pointer;
+}
+
+.copyright {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  border-top: 1px solid #ffffff22;
+  margin-top: 40px;
+  padding-top: 20px;
+  font-size: 11px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 760px) {
+  .container { width: 90%; }
+
+  nav { flex-wrap: wrap; }
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .hero-content,
+  .support-grid,
+  .benefits-grid,
+  .testimonial-grid,
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 { font-size: 43px; }
+  .hero-image { min-height: 270px; }
+  .hero-image img { height: 260px; }
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .feature-grid { grid-template-columns: 1fr; }
+  .art { height: 230px; }
+
+  .price-grid { grid-template-columns: 1fr; }
+  .pro { order: -1; }
+
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .copyright { flex-direction: column; }
+}
+
+@media (max-width: 420px) {
+  section { padding: 45px 0; }
+  h2 { font-size: 27px; }
+  .hero h1 { font-size: 37px; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .ratings { gap: 20px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- 1. HERO -->
+<header>
+  <div class="container">
+    <nav>
+      <a href="#home" class="logo">Biccas</a>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#features">Product</a>
+        <a href="#faq">FAQ</a>
+        <a href="#testimonials">Blog</a>
+        <a href="#footer">About Us</a>
+      </div>
+      <a href="#pricing" class="btn">Sign Up</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-content">
+      <div>
+        <h1>We’re here to<br>Increase your<br>Productivity</h1>
+        <p>Let's make your work more organize and easily using the Taskio Dashboard with many of the latest features in managing work every day.</p>
+        <a href="#pricing" class="btn">Try free trial</a>
+        &nbsp; <a href="#features">▷ View Demo</a>
+      </div>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=800&q=85" alt="Team working">
+        <div class="floating float-one">Enter amount<br><b>$450.00</b></div>
+        <div class="floating float-two">Total Income<br><b>$245.00 ↗</b></div>
+      </div>
+    </div>
+
+    <div class="partners">
+      <h3>More than 25,000 teams use Collabs</h3>
+      <div class="partner-list">
+        <span>▥ Unsplash</span><span>▣ Notion</span>
+        <span>▤ INTERCOM</span><span>≋ descript</span>
+        <span>◉ grammarly</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. SUPPORT -->
+<section class="support">
+  <div class="container support-grid">
+    <div>
+      <h2>How we support our<br>partner all over the world</h2>
+      <p class="muted">SaaS become a common delivery model for many business applications, including office software, messaging software, payroll processing software and management software.</p>
+      <div class="ratings">
+        <div><div class="stars">★★★★★</div><b>4.9 / 5 rating</b><p class="muted">databricks</p></div>
+        <div><div class="stars">★★★★☆</div><b>4.8 / 5 rating</b><p class="muted">Chainalysis</p></div>
+      </div>
+    </div>
+    <div>
+      <article class="support-item"><span class="icon">⌁</span><div><h3>Publishing</h3><p>Plan, collaborate, and publish content that drives meaningful engagement and growth.</p></div></article>
+      <article class="support-item"><span class="icon">◷</span><div><h3>Analytics</h3><p>Analyze your performance and create gorgeous reports.</p></div></article>
+      <article class="support-item"><span class="icon">♧</span><div><h3>Engagement</h3><p>Quickly navigate and engage with your audience.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- 3. FEATURES -->
+<section id="features">
+  <div class="container">
+    <div class="section-heading">
+      <h2>Our Features<br>you can get</h2>
+      <p>We offer a variety of interesting features that help increase your productivity and manage your project easily.</p>
+      <a href="#pricing" class="btn">Get Started</a>
+    </div>
+    <div class="feature-grid">
+      <article class="feature-card">
+        <div class="art"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=500&q=80" alt="Team collaboration"></div>
+        <h3>Collaboration Teams</h3>
+        <p>Handle projects together with your team virtually.</p>
+      </article>
+      <article class="feature-card">
+        <div class="art"><img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=500&q=80" alt="Cloud documents"></div>
+        <h3>Cloud Storage</h3>
+        <p>Keep your files organized with convenient cloud storage.</p>
+      </article>
+      <article class="feature-card">
+        <div class="art"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=500&q=80" alt="Analytics dashboard"></div>
+        <h3>Daily Analytics</h3>
+        <p>Useful information makes it easier to understand your progress.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 4. BENEFITS -->
+<section class="benefits">
+  <div class="container benefits-grid">
+    <div>
+      <h2>What Benefit Will<br>You Get</h2>
+      <ul class="check-list">
+        <li>Free Consulting With Expert Saving Money</li>
+        <li>Online Banking</li>
+        <li>Investment Report Every Month</li>
+        <li>Saving Money For The Future</li>
+        <li>Online Transaction</li>
+      </ul>
+    </div>
+    <img class="benefit-image" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=85" alt="Laptop on office desk">
+  </div>
+</section>
+
+<!-- 5. PRICING -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <h2>Choose Plan<br>That’s Right For You</h2>
+    <p class="pricing-intro">Choose a plan that works best for you.</p>
+    <div class="price-grid">
+      <article class="price-card">
+        <h3>Free</h3>
+        <p>Have a go and test your superpowers</p>
+        <div class="price">$0</div>
+        <a href="#footer" class="btn">Signup for free</a>
+        <ul><li>2 Users</li><li>2 Files</li><li>Public Share & Comments</li><li>Chat Support</li><li>New income apps</li></ul>
+      </article>
+      <article class="price-card pro">
+        <h3>Pro</h3>
+        <p>Experience the power of infinite possibilities</p>
+        <div class="price">$8</div>
+        <a href="#footer" class="btn">Go to pro</a>
+        <ul><li>4 Users</li><li>All apps</li><li>Unlimited editable exports</li><li>Folders and collaboration</li><li>All incoming apps</li></ul>
+      </article>
+      <article class="price-card">
+        <h3>Business</h3>
+        <p>Unveil new superpowers and join the Design League</p>
+        <div class="price">$16</div>
+        <a href="#footer" class="btn">Go to Business</a>
+        <ul><li>All features of pro</li><li>Account success manager</li><li>Single Sign-On (SSO)</li><li>Co-conception program</li><li>Collaboration tools</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 6. TESTIMONIAL + FORM -->
+<section class="testimonials" id="testimonials">
+  <div class="container testimonial-grid">
+    <div>
+      <h2>People are Saying<br>About DoWhith</h2>
+      <p>Everything you need to accept payments and manage your money anywhere.</p>
+      <div class="quote">“</div>
+      <p>I am very helped by this application. My days are easier to organize, and it is very helpful in my life.</p>
+      <br><p>— Aria Zinanrio</p>
+    </div>
+    <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you! Your request has been submitted.');">
+      <h3>Get Started</h3>
+      <label for="email">Email</label>
+      <input id="email" type="email" placeholder="Enter your email" required>
+      <label for="message">Message</label>
+      <textarea id="message" rows="4" placeholder="What would you like to know?" required></textarea>
+      <button class="btn" type="submit">Request Demo</button>
+    </form>
+  </div>
+</section>
+
+<!-- 7. FAQ -->
+<section class="faq" id="faq">
+  <div class="container faq-grid">
+    <div>
+      <h2>Frequently Asked<br>Questions</h2>
+      <p class="muted">Find answers to common questions about Biccas and our plans.</p>
+    </div>
+    <div>
+      <details open><summary>What is Biccas?</summary><p>Biccas helps teams organize projects, collaborate and manage files in one place.</p></details>
+      <details><summary>Can I use Biccas for free?</summary><p>Yes, you can start with the free plan and upgrade whenever you need.</p></details>
+      <details><summary>Can I change my plan later?</summary><p>You can choose the plan that suits your team as your needs change.</p></details>
+      <details><summary>How can I contact support?</summary><p>Send us a message using the demo request form.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- 8. FOOTER -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="#home" class="logo">Biccas</a>
+        <p>Get started now and try our product.</p>
+        <form class="subscribe" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+          <input type="email" placeholder="Enter your email here" aria-label="Email" required>
+          <button type="submit">➜</button>
+        </form>
+      </div>
+      <div><h4>Support</h4><p><a href="#faq">Help centre</a></p><p><a href="#faq">Account information</a></p><p><a href="#faq">About</a></p><p><a href="#faq">Contact us</a></p></div>
+      <div><h4>Help and Solution</h4><p><a href="#faq">Talk to support</a></p><p><a href="#faq">Support docs</a></p><p><a href="#faq">System status</a></p><p><a href="#faq">Help centre</a></p></div>
+      <div><h4>Product</h4><p><a href="#features">Update</a></p><p><a href="#features">Security</a></p><p><a href="#features">Beta test</a></p><p><a href="#pricing">Pricing product</a></p></div>
+    </div>
+    <div class="copyright">
+      <span>© 2026 Biccas Inc. Copyright and rights reserved</span>
+      <span><a href="#footer">Terms and Conditions</a> · <a href="#footer">Privacy Policy</a></span>
+    </div>
+  </div>
+</footer>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biccas - SaaS Landing Page</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #191d1b;
+  background: #fff;
+}
+
+.container {
+  width: 86%;
+  max-width: 1000px;
+  margin: auto;
+}
+
+section {
+  padding: 65px 0;
+}
+
+/* FEATURES */
+.features {
+  background: linear-gradient(110deg, #fff8fa, #ffffff, #f4fcf8);
+}
+
+.features-top {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr auto;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 35px;
+}
+
+.features-top h2,
+.benefit-content h2,
+.pricing h2 {
+  font-size: 30px;
+  line-height: 1.2;
+}
+
+.features-top p {
+  font-size: 12px;
+  line-height: 1.7;
+  color: #999;
+}
+
+.btn {
+  display: inline-block;
+  background: #50bd98;
+  color: #fff;
+  border: none;
+  padding: 13px 22px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.feature-card {
+  min-width: 0;
+}
+
+.illustration {
+  height: 205px;
+  background: #f4f6ff;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+  margin-bottom: 17px;
+}
+
+/* First illustration */
+.doc-line {
+  height: 7px;
+  background: #d7e4ff;
+  margin: 7px 0;
+  border-radius: 2px;
+}
+
+.doc-line.short { width: 65%; }
+.doc-line.medium { width: 80%; }
+
+.doc-block {
+  width: 22px;
+  height: 34px;
+  background: #50bd98;
+  float: left;
+  margin-right: 10px;
+}
+
+.doc-block.blue { background: #168fe8; }
+
+.circle {
+  position: absolute;
+  bottom: 16px;
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
+}
+
+.circle.one {
+  left: 20px;
+  background: #d8e4fb;
+}
+
+.circle.two {
+  left: 66px;
+  background: #148fe9;
+}
+
+.circle.three {
+  left: 112px;
+  background: #50bd98;
+}
+
+.circle.three::after {
+  content: "•••";
+  color: white;
+  position: absolute;
+  top: 10px;
+  left: 8px;
+}
+
+/* Second illustration */
+.cloud-card {
+  position: absolute;
+  left: 18%;
+  top: 22%;
+  width: 72%;
+  height: 85px;
+  background: #50bd98;
+  color: white;
+  padding: 18px 12px;
+  border-radius: 5px;
+  box-shadow: 0 10px 20px #0001;
+  transform: rotate(-1deg);
+}
+
+.cloud-card strong {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 7px;
+}
+
+.cloud-card small { font-size: 9px; }
+
+.cloud-icon {
+  position: absolute;
+  top: 12px;
+  right: 10px;
+  background: white;
+  color: #50bd98;
+  padding: 7px;
+  border-radius: 5px;
+}
+
+.bars {
+  position: absolute;
+  bottom: 18px;
+  left: 25%;
+  display: flex;
+  align-items: end;
+  gap: 11px;
+  height: 48px;
+}
+
+.bars span {
+  width: 8px;
+  background: #50bd98;
+  border-radius: 6px;
+}
+
+.bars span:nth-child(1) { height: 25px; }
+.bars span:nth-child(2) { height: 40px; }
+.bars span:nth-child(3) { height: 30px; }
+.bars span:nth-child(4) { height: 45px; }
+.bars span:nth-child(5) { height: 23px; }
+
+/* Third illustration */
+.chart {
+  width: 105px;
+  height: 105px;
+  position: absolute;
+  left: 50%;
+  top: 8px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: conic-gradient(
+    #ffdf00 0 25%,
+    #138fea 25% 76%,
+    #dce8ff 76% 100%
+  );
+}
+
+.chart::after {
+  content: "";
+  position: absolute;
+  inset: 23px;
+  border-radius: 50%;
+  background: #f4f6ff;
+}
+
+.chart-center {
+  position: absolute;
+  z-index: 2;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32px;
+  height: 32px;
+  background: white;
+  color: #168fe8;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+
+.analytics-line {
+  position: relative;
+  margin-top: 100px;
+  height: 30px;
+  background: #fff;
+  border-radius: 4px;
+}
+
+.analytics-line::before {
+  content: "";
+  display: block;
+  width: 60%;
+  height: 5px;
+  background: #d7e4ff;
+  position: absolute;
+  top: 6px;
+  left: 12px;
+}
+
+.analytics-line::after {
+  content: "";
+  display: block;
+  width: 40%;
+  height: 5px;
+  background: #50bd98;
+  position: absolute;
+  top: 17px;
+  left: 12px;
+}
+
+.feature-card h3 {
+  font-size: 16px;
+  margin-bottom: 9px;
+}
+
+.feature-card p {
+  font-size: 12px;
+  color: #999;
+  line-height: 1.7;
+}
+
+/* BENEFITS */
+.benefits {
+  background: linear-gradient(110deg, #fff, #f5fcf9, #dff7ed);
+  padding: 35px 0 65px;
+}
+
+.benefit-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 35px;
+  border: 2px solid #168ff5;
+  padding: 5px;
+}
+
+.benefit-content {
+  padding: 10px 0 10px 0;
+}
+
+.benefit-content h2 {
+  font-size: 29px;
+  margin-bottom: 25px;
+}
+
+.check-list {
+  list-style: none;
+}
+
+.check-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  margin: 18px 0;
+}
+
+.check {
+  display: inline-grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  color: white;
+  background: #50bd98;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.benefit-photo {
+  min-height: 250px;
+  background:
+    linear-gradient(#0001, #0001),
+    url("https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=85")
+    center/cover;
+  border-radius: 8px;
+  position: relative;
+}
+
+.transfer {
+  position: absolute;
+  bottom: -10px;
+  left: -35px;
+  background: white;
+  padding: 17px 22px;
+  border-radius: 7px;
+  font-size: 11px;
+  box-shadow: 0 5px 25px #0001;
+}
+
+/* PRICING */
+.pricing {
+  text-align: center;
+  background: linear-gradient(120deg, #fff, #f7fcf9, #d9f5e9);
+  padding: 50px 0 85px;
+}
+
+.pricing h2 {
+  font-size: 32px;
+  line-height: 1.25;
+}
+
+.pricing-subtitle {
+  color: #999;
+  font-size: 12px;
+  margin: 20px 0;
+}
+
+.billing {
+  display: inline-flex;
+  padding: 5px;
+  gap: 5px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px #00000008;
+  margin-bottom: 35px;
+}
+
+.billing button {
+  border: none;
+  padding: 12px 20px;
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 11px;
+}
+
+.billing button.active {
+  background: #50bd98;
+  color: white;
+}
+
+.price-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  gap: 22px;
+  text-align: center;
+}
+
+.price-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 28px 16px 18px;
+  box-shadow: 0 5px 20px #00000005;
+}
+
+.price-card h3 {
+  font-size: 19px;
+  margin-bottom: 12px;
+}
+
+.price-card > p {
+  color: #999;
+  font-size: 11px;
+  line-height: 1.6;
+  min-height: 34px;
+}
+
+.price {
+  font-size: 43px;
+  font-weight: bold;
+  margin: 13px 0 20px;
+}
+
+.price sup {
+  font-size: 13px;
+  font-weight: normal;
+  vertical-align: top;
+}
+
+.price-card ul {
+  list-style: none;
+  background: #f8faf9;
+  border-radius: 9px;
+  padding: 18px 12px;
+  text-align: left;
+}
+
+.price-card li {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 11px;
+  margin: 15px 0;
+}
+
+.price-card li::before {
+  content: "✓";
+  display: grid;
+  place-items: center;
+  min-width: 20px;
+  height: 20px;
+  background: #50bd98;
+  color: white;
+  border-radius: 50%;
+  font-size: 11px;
+}
+
+.price-button {
+  display: block;
+  background: white;
+  color: #50bd98;
+  padding: 13px 10px;
+  border-radius: 9px;
+  text-decoration: none;
+  font-size: 12px;
+  margin: 15px 0;
+  box-shadow: 0 4px 15px #00000008;
+}
+
+.pro {
+  background: #50bd98;
+  color: white;
+  padding-top: 35px;
+  padding-bottom: 30px;
+}
+
+.pro > p { color: #edfff7; }
+
+.pro .price-button {
+  background: #fff;
+  color: #50bd98;
+}
+
+.pro ul { background: white; color: #191d1b; }
+
+.saving {
+  font-size: 10px;
+  background: #72cfad;
+  border-radius: 5px;
+  display: inline-block;
+  padding: 7px 12px;
+  margin-top: -10px;
+  margin-bottom: 15px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 750px) {
+  .container { width: 90%; }
+
+  .features-top {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .feature-grid { grid-template-columns: 1fr; }
+  .illustration { height: 230px; }
+
+  .benefit-box {
+    grid-template-columns: 1fr;
+    padding: 15px;
+  }
+
+  .benefit-photo { min-height: 250px; }
+  .transfer { left: 5px; }
+
+  .price-grid { grid-template-columns: 1fr; }
+  .pro { order: -1; }
+
+  section { padding: 45px 0; }
+}
+</style>
+</head>
+
+
+
+<!-- SECTION 1: FEATURES -->
+<section class="features">
+  <div class="container">
+
+    <div class="features-top">
+      <h2>Our Features<br>you can get</h2>
+
+      <p>
+        We offer a variety of interesting features that you can
+        help increase your productivity at work and manage
+        your project easily.
+      </p>
+
+      <a href="#pricing" class="btn">Get Started</a>
+    </div>
+
+    <div class="feature-grid">
+
+      <article class="feature-card">
+        <div class="illustration">
+          <div class="doc-block"></div>
+          <div class="doc-line"></div>
+          <div class="doc-line medium"></div>
+          <div style="clear:both"></div>
+
+          <div class="doc-block blue"></div>
+          <div class="doc-line"></div>
+          <div class="doc-line short"></div>
+          <div style="clear:both"></div>
+
+          <div class="circle one"></div>
+          <div class="circle two"></div>
+          <div class="circle three"></div>
+        </div>
+
+        <h3>Collaboration Teams</h3>
+        <p>Here you can handle projects together with your team virtually.</p>
+      </article>
+
+      <article class="feature-card">
+        <div class="illustration">
+          <div class="cloud-card">
+            <strong>Document File</strong>
+            <small>456 GB | 1056 items</small>
+          </div>
+
+          <div class="cloud-icon">☁</div>
+
+          <div class="bars">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+
+        <h3>Cloud Storage</h3>
+        <p>No need to worry about storage because we provide storage up to 2 TB.</p>
+      </article>
+
+      <article class="feature-card">
+        <div class="illustration">
+          <div class="chart"></div>
+          <div class="chart-center">◉</div>
+          <div class="analytics-line"></div>
+          <div class="analytics-line" style="margin-top:8px"></div>
+        </div>
+
+        <h3>Daily Analytics</h3>
+        <p>We always provide useful information to make it easier for you every day.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: BENEFITS -->
+<section class="benefits">
+  <div class="container">
+
+    <div class="benefit-box">
+
+      <div class="benefit-content">
+        <h2>What Benefit Will<br>You Get</h2>
+
+        <ul class="check-list">
+          <li><span class="check">✓</span>Free Consulting With Expert Saving Money</li>
+          <li><span class="check">✓</span>Online Banking</li>
+          <li><span class="check">✓</span>Investment Report Every Month</li>
+          <li><span class="check">✓</span>Saving Money For The Future</li>
+          <li><span class="check">✓</span>Online Transaction</li>
+        </ul>
+      </div>
+
+      <div class="benefit-photo">
+        <div class="transfer">✓ &nbsp; Money Transfer Successful</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: PRICING -->
+<section class="pricing" id="pricing">
+  <div class="container">
+
+    <h2>Choose Plan<br>That’s Right For You</h2>
+
+    <p class="pricing-subtitle">
+      Choose plan that works best for you, feel free to contact us
+    </p>
+
+    <div class="billing">
+      <button id="monthly">Bill Monthly</button>
+      <button id="yearly" class="active">Bill Yearly</button>
+    </div>
+
+    <div class="price-grid">
+
+      <article class="price-card">
+        <h3>Free</h3>
+        <p>Have a go and test your superpowers</p>
+
+        <div class="price"><sup>$</sup>0</div>
+
+        <ul>
+          <li>2 Users</li>
+          <li>2 Files</li>
+          <li>Public Share & Comments</li>
+          <li>Chat Support</li>
+          <li>New income apps</li>
+          <a class="price-button" href="#pricing">Signup for free</a>
+        </ul>
+      </article>
+
+      <article class="price-card pro">
+        <h3>Pro</h3>
+        <p>Experiment the power<br>of infinite possibilities</p>
+
+        <div class="price"><sup>$</sup><span id="pro-price">8</span></div>
+
+        <div class="saving">Save $50 a year</div>
+
+        <ul>
+          <li>4 Users</li>
+          <li>All apps</li>
+          <li>Unlimited editable exports</li>
+          <li>Folders and collaboration</li>
+          <li>All incoming apps</li>
+          <a class="price-button" href="#pricing">Go to pro</a>
+        </ul>
+      </article>
+
+      <article class="price-card">
+        <h3>Business</h3>
+        <p>Unveil new superpowers and<br>join the Design League</p>
+
+        <div class="price"><sup>$</sup><span id="business-price">16</span></div>
+
+        <ul>
+          <li>All the features of pro plan</li>
+          <li>Account success Manager</li>
+          <li>Single Sign-On (SSO)</li>
+          <li>Co-conception program</li>
+          <li>Collaboration-Soon</li>
+          <a class="price-button" href="#pricing">Go to Business</a>
+        </ul>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL + CONTACT + FOOTER -->
+<style>
+.testimonial-footer {
+  background: #161d2b;
+  color: #fff;
+  padding: 55px 8% 25px;
+  font-family: Arial, sans-serif;
+}
+
+.tf-container {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.tf-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 55px;
+  align-items: start;
+}
+
+.tf-review h2 {
+  font-size: 28px;
+  line-height: 1.25;
+  margin-bottom: 15px;
+}
+
+.tf-review > p {
+  font-size: 12px;
+  color: #a6adba;
+  line-height: 1.7;
+}
+
+.tf-quote {
+  font-size: 48px;
+  font-weight: bold;
+  margin-top: 15px;
+  color: #fff;
+}
+
+.tf-review .tf-author {
+  margin-top: 20px;
+}
+
+.tf-avatars {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.tf-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #50bd98;
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+}
+
+.tf-play {
+  width: 38px;
+  height: 38px;
+  border: 1px solid white;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+
+.tf-form {
+  background: #222b3c;
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.tf-logo-icon {
+  text-align: center;
+  font-size: 35px;
+  color: #50bd98;
+}
+
+.tf-form h3 {
+  text-align: center;
+  font-size: 21px;
+  margin: 5px 0 25px;
+}
+
+.tf-form label {
+  display: block;
+  font-size: 12px;
+  margin: 15px 0 8px;
+}
+
+.tf-form input,
+.tf-form textarea {
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  padding: 13px;
+  font-family: inherit;
+  font-size: 12px;
+}
+
+.tf-form textarea {
+  height: 75px;
+  resize: vertical;
+}
+
+.tf-submit {
+  width: 100%;
+  border: none;
+  background: #50bd98;
+  color: white;
+  border-radius: 6px;
+  padding: 14px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.tf-note {
+  text-align: right;
+  color: #a6adba;
+  font-size: 10px;
+  margin-top: 8px;
+}
+
+.tf-bottom {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 30px;
+  margin-top: 75px;
+}
+
+.tf-brand h2 {
+  color: #50bd98;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.tf-brand p,
+.tf-links a {
+  color: #a6adba;
+  font-size: 12px;
+  line-height: 2.4;
+}
+
+.tf-email {
+  display: flex;
+  border: 1px solid #8b93a2;
+  border-radius: 30px;
+  padding: 5px;
+  margin-top: 18px;
+}
+
+.tf-email input {
+  width: 100%;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: white;
+  padding: 8px;
+}
+
+.tf-email button {
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  background: #50bd98;
+  color: white;
+  cursor: pointer;
+}
+
+.tf-links h4 {
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.tf-links a {
+  display: block;
+  text-decoration: none;
+}
+
+.tf-links a:hover {
+  color: #50bd98;
+}
+
+.tf-legal {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 45px;
+  font-size: 11px;
+  color: #fff;
+}
+
+.tf-legal a {
+  color: #fff;
+  text-decoration: none;
+}
+
+@media (max-width: 700px) {
+  .testimonial-footer {
+    padding: 40px 6% 25px;
+  }
+
+  .tf-top,
+  .tf-bottom {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .tf-review h2 {
+    font-size: 25px;
+  }
+
+  .tf-form {
+    padding: 22px;
+  }
+
+  .tf-bottom {
+    margin-top: 45px;
+  }
+}
+</style>
+
+<footer class="testimonial-footer">
+  <div class="tf-container">
+
+    <div class="tf-top">
+
+      <div class="tf-review">
+        <h2>People are Saying<br>About DoWhith</h2>
+
+        <p>
+          Everything you need to accept payment and grow
+          your money in manage anywhere on planet.
+        </p>
+
+        <div class="tf-quote">〞</div>
+
+        <p>
+          I am very helped by this E-wallet application,
+          my days are very easy to use this application
+          and its very helpful in my life.
+        </p>
+
+        <p class="tf-author">— Aria Zinnario</p>
+
+        <div class="tf-avatars">
+          <div class="tf-avatar">A</div>
+          <div class="tf-avatar">M</div>
+          <div class="tf-avatar">J</div>
+          <div class="tf-avatar">S</div>
+          <div class="tf-play">▶</div>
+        </div>
+      </div>
+
+      <form class="tf-form" id="contactForm">
+        <div class="tf-logo-icon">▤</div>
+        <h3>Get Started</h3>
+
+        <label for="tf-email">Email</label>
+        <input
+          type="email"
+          id="tf-email"
+          placeholder="Enter your email"
+          required
+        >
+
+        <label for="tf-message">Message</label>
+        <textarea
+          id="tf-message"
+          placeholder="What are you say?"
+          required
+        ></textarea>
+
+        <button class="tf-submit" type="submit">
+          Request Demo
+        </button>
+
+        <p class="tf-note">or Start Free Trial</p>
+      </form>
+
+    </div>
+
+    <div class="tf-bottom">
+
+      <div class="tf-brand">
+        <h2>Biccas</h2>
+        <p>Get started today, try our product</p>
+
+        <form class="tf-email" id="subscribeForm">
+          <input
+            type="email"
+            placeholder="Enter your email here"
+            aria-label="Email for newsletter"
+            required
+          >
+          <button type="submit">➜</button>
+        </form>
+      </div>
+
+      <div class="tf-links">
+        <h4>Support</h4>
+        <a href="#">Help centre</a>
+        <a href="#">Account information</a>
+        <a href="#">About</a>
+        <a href="#">Contact us</a>
+      </div>
+
+      <div class="tf-links">
+        <h4>Help and Solution</h4>
+        <a href="#">Talk to support</a>
+        <a href="#">Support docs</a>
+        <a href="#">System status</a>
+        <a href="#">Covid response</a>
+      </div>
+
+      <div class="tf-links">
+        <h4>Product</h4>
+        <a href="#">Update</a>
+        <a href="#">Security</a>
+        <a href="#">Beta test</a>
+        <a href="#">Pricing product</a>
+      </div>
+
+    </div>
+
+    <div class="tf-legal">
+      <p>© 2026 Biccas Inc. Copyright and rights reserved</p>
+      <p>
+        <a href="#">Terms and Conditions</a>
+        &nbsp; · &nbsp;
+        <a href="#">Privacy Policy</a>
+      </p>
+    </div>
+
+  </div>
+</footer>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  alert("Thank you! Your form has been completed.");
+  this.reset();
+});
+
+document.getElementById("subscribeForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  alert("Thank you for subscribing!");
+  this.reset();
+});
+</script>
+
+<script>
+const monthly = document.getElementById("monthly");
+const yearly = document.getElementById("yearly");
+
+monthly.addEventListener("click", () => {
+  monthly.classList.add("active");
+  yearly.classList.remove("active");
+
+  document.getElementById("pro-price").textContent = "12";
+  document.getElementById("business-price").textContent = "24";
+});
+
+yearly.addEventListener("click", () => {
+  yearly.classList.add("active");
+  monthly.classList.remove("active");
+
+  document.getElementById("pro-price").textContent = "8";
+  document.getElementById("business-price").textContent = "16";
+});
+</script>
+
+
+
+</body>
+</html>
